@@ -27,8 +27,12 @@ export default {
     },
     methods: {
         removeNote(index) {
+<<<<<<< HEAD
             console.log(`Note removed ${index}`)
             this.$emit('remove', index)
+=======
+            this.$store.dispatch('removeNote', index)
+>>>>>>> e8171e4... add Vuex
         }
     }
 }

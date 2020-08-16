@@ -1,5 +1,13 @@
 <template>
     <div class="new-note">
+<<<<<<< HEAD
+=======
+        <message 
+            v-if="mess" 
+            :messageText="mess"
+        />
+        
+>>>>>>> e8171e4... add Vuex
         <label>Имя заметки</label>
         <input type="text" v-model="note.title">
         <label>Описание заметки</label>
@@ -28,17 +36,60 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
     props: {
         note: {
             type: Object,
             required: true
+=======
+import message from '@/components/Message.vue'
+
+export default {
+    components: {
+        message
+    },
+    data() {
+        return {
+            mess: null,
+            note: 
+            {
+                title: '',
+                desc: '',
+                priority: 'standart'
+            }
+>>>>>>> e8171e4... add Vuex
         }
     },
     methods: {
         addNote() {
+<<<<<<< HEAD
             this.$emit('addNote', this.note)
         }
+=======
+            let {title, desc, priority} = this.note
+
+            if(title === '') {
+                this.mess = 'Имя заметки не может быть пустым'
+
+                return false 
+            }
+
+            this.$store.dispatch(
+            'addNote',
+            {
+                title,
+                desc,
+                priority,
+                date: new Date(Date.now()).toLocaleString()
+            });
+            
+                this.note.title = ''
+                this.note.desc = ''
+                this.note.priority = 'standart'
+                this.mess = null
+            }
+>>>>>>> e8171e4... add Vuex
     }
 }
 </script>

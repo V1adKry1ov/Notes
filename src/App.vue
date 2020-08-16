@@ -5,6 +5,7 @@
         <div class="container">
           
 
+<<<<<<< HEAD
           <message 
             v-if="mess" 
             :messageText="mess"
@@ -13,6 +14,11 @@
           <newNote 
             :note="note"
             @addNote="addNote"
+=======
+          <newNote 
+            :note="note"
+           
+>>>>>>> e8171e4... add Vuex
           />
           
           <div class="note-header" style="margin: 36px">
@@ -28,7 +34,10 @@
           <notes 
             :notes="notesFilter"
             :grid="grid"
+<<<<<<< HEAD
             @remove="removeNote"
+=======
+>>>>>>> e8171e4... add Vuex
           />
           
         </div>
@@ -56,6 +65,7 @@ export default {
     return {
       title: 'Заметки',
       search: '',
+<<<<<<< HEAD
       mess: null,
       grid: true,
       note: {
@@ -88,6 +98,21 @@ export default {
   computed: {
     notesFilter() {
       let array = this.notes,
+=======
+      grid: true,
+      noteList: null,
+      note: {}
+    }
+  },
+  created() {
+    this.noteList = this.$store.getters.getNotes
+    console.log(this.note)
+  },
+  computed: {
+    
+    notesFilter() {
+      let array = this.$store.getters.getNotes,
+>>>>>>> e8171e4... add Vuex
           search = this.search
 
       if(!search) return array
@@ -102,6 +127,7 @@ export default {
       // Error
       return array
     }
+<<<<<<< HEAD
   },
   methods: {
     addNote() {
@@ -127,6 +153,9 @@ export default {
     removeNote(index) {
       this.notes.splice(index, 1)
     }
+=======
+    
+>>>>>>> e8171e4... add Vuex
   }
 }
 </script>
