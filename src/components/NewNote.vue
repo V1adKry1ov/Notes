@@ -1,13 +1,10 @@
 <template>
     <div class="new-note">
-<<<<<<< HEAD
-=======
         <message 
             v-if="mess" 
             :messageText="mess"
         />
         
->>>>>>> e8171e4... add Vuex
         <label>Имя заметки</label>
         <input type="text" v-model="note.title">
         <label>Описание заметки</label>
@@ -36,13 +33,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-export default {
-    props: {
-        note: {
-            type: Object,
-            required: true
-=======
 import message from '@/components/Message.vue'
 
 export default {
@@ -58,15 +48,10 @@ export default {
                 desc: '',
                 priority: 'standart'
             }
->>>>>>> e8171e4... add Vuex
         }
     },
     methods: {
         addNote() {
-<<<<<<< HEAD
-            this.$emit('addNote', this.note)
-        }
-=======
             let {title, desc, priority} = this.note
 
             if(title === '') {
@@ -89,7 +74,6 @@ export default {
                 this.note.priority = 'standart'
                 this.mess = null
             }
->>>>>>> e8171e4... add Vuex
     }
 }
 </script>

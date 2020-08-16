@@ -5,20 +5,9 @@
         <div class="container">
           
 
-<<<<<<< HEAD
-          <message 
-            v-if="mess" 
-            :messageText="mess"
-          />
-
-          <newNote 
-            :note="note"
-            @addNote="addNote"
-=======
           <newNote 
             :note="note"
            
->>>>>>> e8171e4... add Vuex
           />
           
           <div class="note-header" style="margin: 36px">
@@ -34,10 +23,6 @@
           <notes 
             :notes="notesFilter"
             :grid="grid"
-<<<<<<< HEAD
-            @remove="removeNote"
-=======
->>>>>>> e8171e4... add Vuex
           />
           
         </div>
@@ -65,40 +50,6 @@ export default {
     return {
       title: 'Заметки',
       search: '',
-<<<<<<< HEAD
-      mess: null,
-      grid: true,
-      note: {
-          title: '',
-          desc: '',
-          priority: 'standart'
-      },
-      notes: [
-          {
-              title: 'First Note',
-              desc: 'Description for fisrt note',
-              date: new Date(Date.now()).toLocaleString(),
-              priority: 'standart'
-          },
-          {
-              title: 'Second Note',
-              desc: 'Description for second note',
-              date: new Date(Date.now()).toLocaleString(),
-              priority: 'important'
-          },
-          {
-              title: 'Third Note',
-              desc: 'Description for third note',
-              date: new Date(Date.now()).toLocaleString(),
-              priority: 'veryImportant'
-          }
-      ]
-    }
-  },
-  computed: {
-    notesFilter() {
-      let array = this.notes,
-=======
       grid: true,
       noteList: null,
       note: {}
@@ -112,7 +63,6 @@ export default {
     
     notesFilter() {
       let array = this.$store.getters.getNotes,
->>>>>>> e8171e4... add Vuex
           search = this.search
 
       if(!search) return array
@@ -127,35 +77,7 @@ export default {
       // Error
       return array
     }
-<<<<<<< HEAD
-  },
-  methods: {
-    addNote() {
-        let {title, desc, priority} = this.note
-
-        if(title === '') {
-            this.mess = 'Имя заметки не может быть пустым'
-            return false 
-        }
-
-        this.notes.push({
-            title,
-            desc,
-            priority,
-            date: new Date(Date.now()).toLocaleString()
-            
-        })
-        this.note.title = ''
-        this.note.desc = ''
-        this.note.priority = 'standart'
-        this.mess = null
-    },
-    removeNote(index) {
-      this.notes.splice(index, 1)
-    }
-=======
     
->>>>>>> e8171e4... add Vuex
   }
 }
 </script>
